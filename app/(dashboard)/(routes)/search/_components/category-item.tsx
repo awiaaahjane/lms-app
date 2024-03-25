@@ -45,8 +45,8 @@ export const CategoryItem = ({
     <button
       onClick={onClick}
       className={cn(
-        "py-2 px-3 text-sm border border-slate-200 rounded-full flex items-center gap-x-1 hover:border-sky-700 transition",
-        isSelected && "border-sky-700 bg-sky-200/20 text-sky-800"
+        "py-2 px-3 text-sm  border border-slate-400 rounded-full flex items-center gap-x-1 text-slate-500 hover:border-sky-700 hover:text-primary transition",
+        isSelected && "border-primary bsg-sky-200/20 text-primary"
       )}
       type="button"
     >

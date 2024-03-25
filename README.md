@@ -14,7 +14,7 @@ Key Features:
 - Mark Chapters as Completed or Uncompleted
 - Progress Calculation of each Course
 - Student Dashboard
-- Teacher mode
+- Admin mode
 - Create new Courses
 - Create new Chapters
 - Easily reorder chapter position with drag n’ drop
@@ -65,7 +65,7 @@ STRIPE_API_KEY=
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 STRIPE_WEBHOOK_SECRET=
 
-NEXT_PUBLIC_TEACHER_ID=
+NEXT_PUBLIC_ADMIN_ID=
 ```
 
 ### Setup Prisma

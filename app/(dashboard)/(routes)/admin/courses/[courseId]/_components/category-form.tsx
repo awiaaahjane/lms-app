@@ -8,6 +8,7 @@ import { Pencil } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { Course } from "@prisma/client";
 
 import {
   Form,
@@ -16,26 +17,26 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Textarea } from "@/components/ui/textarea";
+import { Combobox } from "@/components/ui/combobox";
 
-interface ChapterTitleFormProps {
-  initialData: {
-    title: string;
-  };
+interface CategoryFormProps {
+  initialData: Course;
   courseId: string;
-  chapterId: string;
+  options: { label: string; value: string; }[];
 };
 
 const formSchema = z.object({
-  title: z.string().min(1),
+  categoryId: z.string().min(1),
 });
 
-export const ChapterTitleForm = ({
+export const CategoryForm = ({
   initialData,
   courseId,
-  chapterId,
-}: ChapterTitleFormProps) => {
+  options,
+}: CategoryFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const toggleEdit = () => setIsEditing((current) => !current);
@@ -44,15 +45,17 @@ export const ChapterTitleForm = ({
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData,
+    defaultValues: {
+      categoryId: initialData?.categoryId || ""
+    },
   });
 
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, values);
-      toast.success("Chapter updated");
+      await axios.patch(`/api/courses/${courseId}`, values);
+      toast.success("Course updated");
       toggleEdit();
       router.refresh();
     } catch {
@@ -60,24 +63,29 @@ export const ChapterTitleForm = ({
     }
   }
 
+  const selectedOption = options.find((option) => option.value === initialData.categoryId);
+
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 border bg-secondary rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
-        Chapter title
+        Course category
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
             <>Cancel</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit title
+              Edit category
             </>
           )}
         </Button>
       </div>
       {!isEditing && (
-        <p className="text-sm mt-2">
-          {initialData.title}
+        <p className={cn(
+          "text-sm mt-2",
+          !initialData.categoryId && "text-slate-500 italic"
+        )}>
+          {selectedOption?.label || "No category"}
         </p>
       )}
       {isEditing && (
@@ -88,13 +96,12 @@ export const ChapterTitleForm = ({
           >
             <FormField
               control={form.control}
-              name="title"
+              name="categoryId"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      disabled={isSubmitting}
-                      placeholder="e.g. 'Introduction to the course'"
+                    <Combobox
+                      options={...options}
                       {...field}
                     />
                   </FormControl>

@@ -6,15 +6,15 @@ import { LogOut } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { isTeacher } from "@/lib/teacher";
-
+import { isAdmin } from "@/lib/admin";
+import { ThemeToggle } from "./theme-toggle";
 import { SearchInput } from "./search-input";
 
 export const NavbarRoutes = () => {
   const { userId } = useAuth();
   const pathname = usePathname();
 
-  const isTeacherPage = pathname?.startsWith("/teacher");
+  const isAdminPage = pathname?.startsWith("/admin");
   const isCoursePage = pathname?.includes("/courses");
   const isSearchPage = pathname === "/search";
 
@@ -26,17 +26,18 @@ export const NavbarRoutes = () => {
         </div>
       )}
       <div className="flex gap-x-2 ml-auto">
-        {isTeacherPage || isCoursePage ? (
+            <ThemeToggle />
+        {isAdminPage || isCoursePage ? (
           <Link href="/">
             <Button size="sm" variant="ghost">
               <LogOut className="h-4 w-4 mr-2" />
               Exit
             </Button>
           </Link>
-        ) : isTeacher(userId) ? (
-          <Link href="/teacher/courses">
+        ) : isAdmin(userId) ? (
+          <Link href="/admin/courses">
             <Button size="sm" variant="ghost">
-              Teacher mode
+              Admin mode
             </Button>
           </Link>
         ) : null}
