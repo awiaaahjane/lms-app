@@ -14,9 +14,9 @@ export const NavbarRoutes = () => {
   const { userId } = useAuth();
   const pathname = usePathname();
 
-  const isAdminPage = pathname?.startsWith("/admin");
+  const isAdminPage = pathname?.startsWith("/dashboard/admin");
   const isCoursePage = pathname?.includes("/courses");
-  const isSearchPage = pathname === "/search";
+  const isSearchPage = pathname === "/dashboard/search";
 
   return (
     <>
@@ -35,10 +35,10 @@ export const NavbarRoutes = () => {
             </Button>
           </Link>
         ) : isAdmin(userId) ? (
-          <Link href="/admin/courses">
+          <Link href="/dashboard/admin/courses">
             <Button size="sm" variant="ghost">
               Admin mode
-            </Button>
+            </Button> 
           </Link>
         ) : null}
         <UserButton
