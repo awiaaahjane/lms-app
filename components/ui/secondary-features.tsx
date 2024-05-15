@@ -167,8 +167,9 @@ function FeaturesMobile() {
   return (
     <>
     <div className='-mx-4 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden'>
-      {features.map((feature) => (
+      {features.map((feature, index) => (
         <Feature
+          key={index}
           feature={feature}
           className='mx-auto max-w-2xl'
           isActive
