@@ -7,28 +7,35 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/ui/container'
 import backgroundImage from '@/images/background-features.jpg'
+import screenshotAddingNewCourse from '@/images/screenshots/adding-courses.png'
 import screenshotCourseSetup from '@/images/screenshots/course-setup.png'
-import screenshotDashboard from '@/images/screenshots/dashboard.png'
-import screenshotCourses from '@/images/screenshots/courses.png'
+import screenshotAddingChapters from '@/images/screenshots/adding-chapters.png'
+import screenshotPublication from '@/images/screenshots/Publication.png'
 
 const features = [
   {
-    title: 'Dashboard',
+    title: 'Adding Course Title',
     description:
-      'Access all your courses in one spot with our dashboard. It makes managing your learning easy!',
-    image: screenshotDashboard,
-  },
-  {
-    title: 'Courses',
-    description:
-      'Course management made easy with a display of titles, prices, and publication status, plus a convenient search feature.',
-    image: screenshotCourses,
+      'Discover how to make engaging new courses by choosing catchy titles that attract learners.',
+    image: screenshotAddingNewCourse,
   },
   {
     title: 'Course Setup',
     description:
-      'Admins have complete control to create, modify, and delete courses for easy management.',
+      'Ensure thorough completion of all essential fields to successfully set up your course.',
     image: screenshotCourseSetup,
+  },
+  {
+    title: 'Adding Chapters',
+    description:
+      'Complete all required fields to successfully add chapters to your course.',
+    image: screenshotAddingChapters,
+  },
+  {
+    title: 'Publication',
+    description:
+      'Publish the course to make it visible to users and encourage engagement.',
+    image: screenshotPublication,
   },
 ]
 
@@ -53,16 +60,15 @@ export function PrimaryFeatures() {
   return (
     <section
       id='features'
-      aria-label='Features for running your books'
-      className='relative overflow-hidden bg-blue-600 pb-28 pt-20 sm:py-32'>
-      <Image
+      aria-label='Features for adding new course'
+      className='relative overflow-hidden pb-28 pt-20 sm:py-32 bg-slate-600'>
+      {/* <Image
         className='absolute left-1/2 top-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]'
         src={backgroundImage}
         alt=''
         width={2245}
         height={1636}
-        unoptimized
-      />
+      /> */}
       <Container className='relative'>
         <div className='max-w-2xl md:mx-auto md:text-center xl:max-w-none'>
           <h2 className='font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl'>
@@ -132,7 +138,7 @@ export function PrimaryFeatures() {
                         src={feature.image}
                         alt=''
                         priority
-                        sizes='(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem'
+                        // sizes='(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem'
                       />
                     </div>
                   </Tab.Panel>

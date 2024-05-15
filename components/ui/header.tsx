@@ -10,7 +10,7 @@ import { Container } from '@/components/ui/container'
 import { Logo } from '@/components/ui/logo'
 import { NavLink } from '@/components/ui/navlink'
 import { SignIn, SignInButton, SignedIn, SignedOut } from '@clerk/nextjs'
-
+import { ThemeToggle } from '../theme-toggle'
 function MobileNavLink({
   href,
   children,
@@ -108,22 +108,19 @@ export default function Header() {
               <Logo />
             </Link>
             <div className='hidden md:flex md:gap-x-6'>
-              <NavLink href='#features'>Features</NavLink>
+              <NavLink href='#secondary-features'>Features</NavLink>
               <NavLink href='#testimonials'>Testimonials</NavLink>
+              <NavLink href='#faq'>FAQs</NavLink>
              
             </div>
           </div>
           <div className='flex items-center gap-x-5 md:gap-x-8'>
-            <div className='hidden md:block'>
-              <SignedOut>
-                <Link href='/sign-in'>Sign in</Link>
-              </SignedOut>
-            </div>
+          <ThemeToggle />
             <SignedOut>
               <Button color='blue'>
-                <Link href='/register'>
+                <Link href='/sign-in'>
                   <span>
-                    Get started <span className='hidden lg:inline'>today</span>
+                    Sign in <span className='hidden lg:inline'></span>
                   </span>
                 </Link>
               </Button>

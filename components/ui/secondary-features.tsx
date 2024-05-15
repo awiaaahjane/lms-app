@@ -6,17 +6,16 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/ui/container'
-import screenshotCourseSetup from '@/images/screenshots/course-setup.png'
+import screenshotAdminDashboard from '@/images/screenshots/admin-dashboard.png'
 import screenshotDashboard from '@/images/screenshots/dashboard.png'
-import screenshotCourses from '@/images/screenshots/courses.png'
+import screenshotBrowsingCourse from '@/images/screenshots/courses.png'
+import screenshotAnalytics from '@/images/screenshots/analytics.png'
 
 const features = [
   {
-    name: 'Dashboard',
+    name: 'User Dashboard',
     summary:
-      'Access all your courses in one spot with our dashboard. It makes managing your learning easy!',
-    description:
-      'Our dashboard simplifies learning by bringing all your courses to one convenient place. Easily manage and access your enrolled courses with just a click.',
+      'Access all your courses in one spot with our dashboard. It makes managing your learning easy.',
     image: screenshotDashboard,
     icon: function ReportingIcon() {
       let id = useId()
@@ -52,12 +51,31 @@ const features = [
     },
   },
   {
-    name: 'Courses',
+    name: 'Browsing Courses',
+    summary:
+      'Easily find the perfect course for you with our simple browsing tool.',
+    image: screenshotBrowsingCourse,
+    icon: function ContactsIcon() {
+      return (
+        <>
+          <path
+            opacity='.5'
+            d='M25.778 25.778c.39.39 1.027.393 1.384-.028A11.952 11.952 0 0 0 30 18c0-6.627-5.373-12-12-12S6 11.373 6 18c0 2.954 1.067 5.659 2.838 7.75.357.421.993.419 1.384.028.39-.39.386-1.02.036-1.448A9.959 9.959 0 0 1 8 18c0-5.523 4.477-10 10-10s10 4.477 10 10a9.959 9.959 0 0 1-2.258 6.33c-.35.427-.354 1.058.036 1.448Z'
+            fill='#fff'
+          />
+          <path
+            d='M12 28.395V28a6 6 0 0 1 12 0v.395A11.945 11.945 0 0 1 18 30c-2.186 0-4.235-.584-6-1.605ZM21 16.5c0-1.933-.5-3.5-3-3.5s-3 1.567-3 3.5 1.343 3.5 3 3.5 3-1.567 3-3.5Z'
+            fill='#fff'
+          />
+        </>
+      )
+    },
+  },
+  {
+    name: 'Admin Dashboard',
     summary:
       'Course management made easy with a display of titles, prices, and publication status, plus a convenient search feature.',
-    description:
-      'Our admin dashboard provides a clear overview of uploaded courses, including titles, prices, and publication status. With a handy search feature, managing courses is efficient and effortless.',
-    image: screenshotCourses,
+    image: screenshotAdminDashboard,
     icon: function InventoryIcon() {
       return (
         <>
@@ -80,12 +98,10 @@ const features = [
     },
   },
   {
-    name: 'Course Setup',
+    name: 'Analytics',
     summary:
       'Admins have complete control to create, modify, and delete courses for easy management.',
-    description:
-      'Our system lets admins easily create, edit, and delete courses, giving them total control for smooth management.',
-    image: screenshotCourseSetup,
+    image: screenshotAnalytics,
     icon: function ContactsIcon() {
       return (
         <>
@@ -116,6 +132,7 @@ function Feature({
   props: any
 }) {
   return (
+    <>
     <div
       className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
       {...props}>
@@ -138,16 +155,17 @@ function Feature({
         )}>
         {feature.name}
       </h3>
-      <p className='mt-2 font-display text-xl text-slate-900'>
+      <p className='mt-2 font-display text-lg text-slate-foreground'>
         {feature.summary}
       </p>
-      <p className='mt-4 text-sm text-slate-600'>{feature.description}</p>
     </div>
+    </>
   )
 }
 
 function FeaturesMobile() {
   return (
+    <>
     <div className='-mx-4 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden'>
       {features.map((feature) => (
         <Feature
@@ -158,17 +176,19 @@ function FeaturesMobile() {
         />
       ))}
     </div>
+    </>
   )
 }
 
 function FeaturesDesktop() {
   return (
+    <>
     <Tab.Group
       as='div'
       className='hidden lg:mt-20 lg:block'>
       {({ selectedIndex }) => (
         <>
-          <Tab.List className='grid grid-cols-3 gap-x-8'>
+          <Tab.List className='grid grid-cols-4 gap-x-8'>
             {features.map((feature, featureIndex) => (
               <Feature
                 key={feature.summary}
@@ -215,21 +235,23 @@ function FeaturesDesktop() {
         </>
       )}
     </Tab.Group>
+    </>
   )
 }
 
 export function SecondaryFeatures() {
   return (
+    <>
     <section
       id='secondary-features'
       aria-label='Features for simplifying everyday business tasks'
-      className='pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32'>
+      className='pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32 bg-secondary'>
       <Container>
         <div className='mx-auto max-w-2xl md:text-center'>
-          <h2 className='font-display text-3xl tracking-tight text-slate-900 sm:text-4xl'>
+          <h2 className='font-display text-3xl tracking-tight text-foreground sm:text-4xl'>
             Make tasks easier with helpful features.
           </h2>
-          <p className='mt-4 text-lg tracking-tight text-slate-700'>
+          <p className='mt-4 text-lg tracking-tight text-slate-600'>
             Make your work easier with our tool, designed to simplify tasks and
             help you work faster.
           </p>
@@ -238,5 +260,6 @@ export function SecondaryFeatures() {
         <FeaturesDesktop />
       </Container>
     </section>
+    </>
   )
 }

@@ -6,6 +6,7 @@ import {
   ResponsiveContainer,
   XAxis,
   YAxis,
+  Tooltip
 } from "recharts";
 
 import { Card } from "@/components/ui/card";
@@ -27,17 +28,19 @@ export const Chart = ({
           <XAxis
             dataKey="name"
             stroke="#888888"
-            fontSize={12}
+            fontSize={10}
             tickLine={false}
             axisLine={false}
+            className="text-ellipsis overflow-hidden"
           />
           <YAxis
             stroke="#888888"
-            fontSize={12}
+            fontSize={10}
             tickLine={false}
             axisLine={false}
             tickFormatter={(value) => `$${value}`}
           />
+          <Tooltip wrapperStyle={{ padding: '2rem auto',  backgroundColor: '#fff' }} />
           <Bar
             dataKey="total"
             fill="#0369a1"

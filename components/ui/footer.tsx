@@ -6,15 +6,17 @@ import { NavLink } from '@/components/ui/navlink'
 
 export function Footer() {
   return (
-    <footer className="bg-slate-50">
+    <footer className="bg-background">
       <Container>
         <div className="py-16">
-            <Logo />
+            <div className="flex justify-center">
+                <Logo />
+                </div>
             <nav className="mt-10 text-sm" aria-label="quick links">
                 <div className="-my-1 flex justify-center gap-x-6">
-                    <NavLink href="#features">Features</NavLink>
+                    <NavLink href="#secondary-features">Features</NavLink>
                     <NavLink href="#testimonials">Testimonials</NavLink>
-                   
+                    <NavLink href="#faq">FAQs</NavLink>
                 </div>
             </nav>
         </div>
@@ -40,7 +42,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} LMS. All rights
+            Copyright &copy; {new Date().getFullYear()} Learnify. All rights
             reserved.
           </p>
         </div>

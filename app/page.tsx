@@ -2,9 +2,9 @@ import { Testimonials } from '@/components/ui/testimonial';
 import Header from '../components/ui/header';
 import Hero from '../components/ui/hero';
 import { PrimaryFeatures } from '@/components/ui/primary-features';
+import { Faqs } from '@/components/ui/faqs'
 import { SecondaryFeatures } from '@/components/ui/secondary-features';
 import { Footer } from '@/components/ui/footer'
-
 
 
 export default function Home() {
@@ -13,9 +13,10 @@ export default function Home() {
               <Header />
               <main>
                 <Hero />
+                <SecondaryFeatures />
                 <PrimaryFeatures />
-                {/* <SecondaryFeatures /> */}
                 <Testimonials />
+                <Faqs />
                 </main>
                 <Footer />
             </>

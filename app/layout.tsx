@@ -1,7 +1,7 @@
-import Head from 'next/head'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import Head from 'next/head'
+import { Fredoka } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 
 import { ToastProvider } from '@/components/providers/toaster-provider'
@@ -9,10 +9,11 @@ import { ConfettiProvider } from '@/components/providers/confetti-provider'
 
 import { ThemeProvider } from '@/components/providers/theme-provider'
 
-const inter = Inter({ subsets: ['latin'] })
+
+const fredoka = Fredoka({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'LMS',
+  title: 'Learnify',
   description: 'A Learning Management System',
 }
 
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <>
       <Head>
-        <link rel="icon" href="/public/logo.ico" />
+      <link rel="icon" href="/public/favicon.ico"/>
       </Head>
     <ClerkProvider
     appearance={{
@@ -34,7 +35,7 @@ export default function RootLayout({
       }
     }}>
       <html lang='en'>
-        <body className={inter.className}>
+        <body className={fredoka.className}>
           <ThemeProvider
             attribute='class'
             defaultTheme='light'

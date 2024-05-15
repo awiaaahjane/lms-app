@@ -11,60 +11,33 @@ const testimonials = [
   [
     {
       content:
-        "As an English literature professor, I'm passionate about helping my students connect with classic literature. This LMS system has allowed me to create dynamic discussions and provide in-depth analysis, enriching my students' understanding of literary works.",
+        "As an English literature professor, I'm passionate about helping my students connect with classic literature Learnify has allowed me to create dynamic discussions and provide in-depth analysis, enriching my students' understanding of literary works.",
       author: {
         name: 'Professor Emily Carter',
         role: ' Inspiring English Literature Professor',
         image: avatarImage1,
       },
     },
-    {
-      content:
-        "Studying English literature with Professor Carter and using this LMS system has opened my eyes to the beauty of storytelling. The platform's resources have helped me explore diverse narratives and develop my analytical skills.",
-      author: {
-        name: 'Maria Rodriguez',
-        role: 'Dedicated Middle School Student',
-        image: avatarImage4,
-      },
-    },
   ],
   [
     {
       content:
-        "As an educator, my goal is to instill a love for mathematics in my students. With this LMS system, I've been able to create interactive lessons and provide personalized feedback, empowering my students to excel in the subject.",
+        "As an educator, my goal is to instill a love for mathematics in my students. With Learnify, I've been able to create interactive lessons and provide personalized feedback, empowering my students to excel in the subject.",
       author: {
         name: 'Professor David Matthews',
         role: 'Inspirational Mathematics Professor',
         image: avatarImage5,
       },
     },
-    {
-      content:
-        "Mathematics used to intimidate me, but with the help of Professor Matthews and this LMS system, I've gained confidence in my abilities. The platform's resources and support have helped me overcome challenges and achieve success in math.",
-      author: {
-        name: 'Alice Turner',
-        role: ' Motivated High School Student',
-        image: avatarImage2,
-      },
-    },
   ],
   [
     {
       content:
-        "Dr. Watson's history class, supported by this LMS system, has been one of the highlights of my college experience. The platform's interactive features and engaging content have made learning history enjoyable and rewarding.",
+        "Dr. Watson's history class, supported by Learnify, has been one of the highlights of my college experience. The platform's interactive features and engaging content have made learning history enjoyable and rewarding.",
       author: {
         name: 'Jake Thompson',
         role: 'Enthusiastic College Student',
         image: avatarImage3,
-      },
-    },
-    {
-      content:
-        "Teaching history isn't just about memorizing dates; it's about understanding the impact of past events on the present. This LMS system has allowed me to create immersive learning experiences that challenge my students to think critically and develop a deeper appreciation for history.",
-      author: {
-        name: 'Dr. Karen Watson',
-        role: 'Respected History Professor',
-        image: avatarImage4,
       },
     },
   ],
@@ -87,14 +60,14 @@ export function Testimonials() {
     <section
       id='testimonials'
       aria-label='What our customers are saying'
-      className='bg-slate-50 py-20 sm:py-32'>
+      className='bg-secondary py-20 sm:py-32'>
       <Container>
         <div className='mx-auto max-w-2xl md:text-center'>
-          <h2 className='font-display text-3xl tracking-tight text-slate-900 sm:text-4xl'>
+          <h2 className='font-display text-3xl tracking-tight text-foreground sm:text-4xl'>
             Embraced by educational institutions globally.
           </h2>
-          <p className='mt-4 text-lg tracking-tight text-slate-700'>
-          Our LMS prioritizes simplicity, making learning intuitive without overwhelming users with unnecessary features.
+          <p className='mt-4 text-lg tracking-tight text-slate-600'>
+          Our Learnify prioritizes simplicity, making learning intuitive without overwhelming users with unnecessary features.
           </p>
         </div>
         <ul
